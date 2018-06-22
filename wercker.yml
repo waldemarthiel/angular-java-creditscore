@@ -1,0 +1,34 @@
+box: combient/java-mvn  
+build:
+  steps:
+    # Build Creditscore application
+    - script:
+        name: Customize application home page
+        code: sed "s|@@NAMESPACE@@|${WERCKER_APPLICATION_OWNER_NAME}|g" -i $WERCKER_ROOT/src/main/webapp/WEB-INF/views/CreditScore.jsp
+    - script:
+        name: Print JSP source
+        code: cat $WERCKER_ROOT/src/main/webapp/WEB-INF/views/CreditScore.jsp
+    - script:
+        name: Customize application context path
+        code: sed "s|replaceme|${WERCKER_APPLICATION_OWNER_NAME}|g" -i $WERCKER_ROOT/src/main/webapp/WEB-INF/weblogic.xml
+    - script:
+        name: Print weblogic.xml source
+        code: cat $WERCKER_ROOT/src/main/webapp/WEB-INF/weblogic.xml
+    - script:
+        name: Maven build for WebLogic deployment
+        code: mvn clean package -Pweblogic
+
+deploy-to-weblogic:
+  box:
+      id: spotify/alpine
+      cmd: /bin/sh
+  steps:
+    # Deploy WAR using WebLogic REST Management interface
+    - script:
+        name: using curl to deploy through REST management interface
+        code: |
+              curl -v --user $WLS_ADMIN:$WLS_PASSWORD -H "X-Requested-By:Wercker" -H "Accept:application/json" -H "Content-Type:multipart/form-data" -F "model={name: '${WERCKER_APPLICATION_OWNER_NAME}-webapp', targets: [ 'cluster-1' ]}" -F deployment=@"${WERCKER_ROOT}/target/creditscore-1.0.0.war" http://${WLS_IP}:${WLS_ADMIN_PORT}/management/wls/latest/deployments/application
+    - script:
+        name: Print application URL
+        code: echo http://${WLS_IP}:30305/${WERCKER_APPLICATION_OWNER_NAME}
+              
