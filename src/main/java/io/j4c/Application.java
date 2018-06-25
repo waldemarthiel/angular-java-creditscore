@@ -28,7 +28,7 @@ public class Application extends SpringBootServletInitializer implements WebAppl
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
 	}
-
+/*
 	@Bean
 	CommandLineRunner init() {
 
@@ -39,7 +39,7 @@ public class Application extends SpringBootServletInitializer implements WebAppl
 		};
 
 	}
-
+*/
 	@Override
 	public void onStartup(ServletContext container) {
 	}
