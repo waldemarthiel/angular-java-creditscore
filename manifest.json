@@ -3,7 +3,7 @@
     "majorVersion":"8"
   },
   "startupTime" : "100",
-  "command": "java -jar target/creditscore-1.0.0.war",
+  "command": "java -jar $APP_HOME/target/creditscore-1.0.0.war --server.port=$PORT",
   "notes": "",
   "type":"web"
-} 
+}
