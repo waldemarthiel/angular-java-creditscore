@@ -7,14 +7,14 @@
   </formats>
   <fileSets>
     <fileSet>
-      <outputDirectory>/</outputDirectory>
+      <outputDirectory>./</outputDirectory>
       <directory>target</directory>
       <includes>
         <include>*.war</include>
       </includes>
     </fileSet>
     <fileSet>
-      <outputDirectory>/</outputDirectory>
+      <outputDirectory>./</outputDirectory>
       <includes>
         <include>manifest.json</include>
       </includes>
