@@ -34,7 +34,7 @@ Now you have everything to deploy Creditscore demo web application using the RES
 	  -H "content-type: multipart/form-data;"  \
 	  -F "name=CreditscoreApp" \
 	  -F "runtime=java" \
-	  -F "subscription=MONTHLY" \
+	  -F "subscription=HOURLY" \
 	  -F "deployment=@Local-path-to-deployment-json\deployment.json" \
 	  -F "manifest=@Local-path-to-manifest-json\manifest.json" \
 	  -F "gitRepoUrl=https://github.com/nagypeter/angular-java-creditscore.git"
@@ -50,7 +50,7 @@ Replacing the necessary parameters and executing the request you should get a si
 	>   -H "content-type: multipart/form-data;"  \
 	>   -F "name=CreditscoreApp" \
 	>   -F "runtime=java" \
-	>   -F "subscription=MONTHLY" \
+	>   -F "subscription=HOURLY" \
 	>   -F "deployment=@/home/oracle/deployment.json" \
 	>   -F "manifest=@/home/oracle/manifest.json" \
 	>   -F "gitRepoUrl=https://github.com/nagypeter/angular-java-creditscore.git"
