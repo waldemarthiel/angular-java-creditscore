@@ -28,7 +28,7 @@ In this tutorial you can download these metadata files directly from the demo ap
 Now you have everything to deploy Creditscore demo web application using the REST API. Replace the neccessary values in the following example to get your version of the cURL POST request  to deploy the application. This example assumes Linux based shell.
 
 	curl -X POST -u <YOUR_ORACLE_CLOUD_USERNAME>:<YOUR_ORACLE_CLOUD_PASSWORD>\
-	  https://apaas.oraclecloud.com/paas/service/apaas/api/v1.1/apps/<YOUR_ORACLE_CLOUD_IDENTITY_DOMAIN> \
+	  https://apaas.us.oraclecloud.com/paas/service/apaas/api/v1.1/apps/<YOUR_ORACLE_CLOUD_IDENTITY_DOMAIN> \
 	  -H "X-ID-TENANT-NAME:<YOUR_ORACLE_CLOUD_IDENTITY_DOMAIN>" \
 	  -H "Cache-Control: no-cache" \
 	  -H "content-type: multipart/form-data;"  \
