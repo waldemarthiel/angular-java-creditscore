@@ -25,6 +25,8 @@ In this tutorial you can download these metadata files directly from the demo ap
 	curl https://raw.githubusercontent.com/nagypeter/angular-java-creditscore/master/manifest.json -o ~/manifest.json
 	curl https://raw.githubusercontent.com/nagypeter/angular-java-creditscore/master/deployment.json -o ~/deployment.json
 
+!NOTE! When you use cURL in Windows environment keep in mind Windows use `\` (backslash) when you define `deployment.json` and `manifest.json` saving location.
+
 Now you have everything to deploy Creditscore demo web application using the REST API. Replace the neccessary values in the following example to get your version of the cURL POST request  to deploy the application. This example assumes Linux based shell.
 
 	curl -X POST -u <YOUR_ORACLE_CLOUD_USERNAME>:<YOUR_ORACLE_CLOUD_PASSWORD>\
@@ -35,11 +37,15 @@ Now you have everything to deploy Creditscore demo web application using the RES
 	  -F "name=CreditscoreApp" \
 	  -F "runtime=java" \
 	  -F "subscription=HOURLY" \
-	  -F "deployment=@Local-path-to-deployment-json\deployment.json" \
-	  -F "manifest=@Local-path-to-manifest-json\manifest.json" \
+	  -F "deployment=@Local-path-to-deployment-json/deployment.json" \
+	  -F "manifest=@Local-path-to-manifest-json/manifest.json" \
 	  -F "gitRepoUrl=https://github.com/nagypeter/angular-java-creditscore.git"
 
-If you want to use private repository provide *gitUserName* and *gitPassword* parameters.
+!NOTE! When you use cURL in Windows environment please replace the line break `\` characters appropiately or create a single line command. Also keep in mind Windows use `\` (backslash) when you define `deployment.json` and `manifest.json` location. The best is to run cURL command from the directory where you saved `deployment.json` and `manifest.json` and avoid to define the full path to the files.
+
+(Know bug. In case of Windows (8.1 especially) cURL if you get **Bad Request** response remove `-H "content-type: multipart/form-data;"` parameter.)
+
+In case if you need to use private repository provide *gitUserName* and *gitPassword* parameters.
 
 Replacing the necessary parameters and executing the request you should get a similar response:
 
