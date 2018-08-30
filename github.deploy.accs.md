@@ -10,7 +10,6 @@ This tutorial demonstrates how to deploy application from Git repository using R
 ### Prerequisites ###
 
 - An Oracle Cloud account with access to an instance of Oracle Application Container Cloud Service
-- A [GitHub](https://github.com/) account
 - Shell to execute cURL commands
 
 ----
