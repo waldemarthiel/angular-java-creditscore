@@ -42,7 +42,7 @@ Now you have everything to deploy Creditscore demo web application using the RES
 
 !NOTE! When you use cURL in Windows environment please replace the line break `\` characters appropiately or create a single line command. Also keep in mind Windows use `\` (backslash) when you define `deployment.json` and `manifest.json` location. The best is to run cURL command from the directory where you saved `deployment.json` and `manifest.json` and avoid to define the full path to the files.
 
-(Know bug. In case of Windows (8.1 especially) cURL if you get **Bad Request** response remove `-H "content-type: multipart/form-data;"` parameter.)
+(Known bugs. In case of Windows (8.1 especially) cURL if you get **Bad Request** response remove `-H "content-type: multipart/form-data;"` parameter.)
 
 In case if you need to use private repository provide *gitUserName* and *gitPassword* parameters.
 
